@@ -1,0 +1,80 @@
+{
+  "name": "vsharp",
+  "displayName": "V#",
+  "description": "V# language support: syntax highlighting, diagnostics, completion, hover, go-to-definition and document symbols.",
+  "version": "0.0.93-A",
+  "publisher": "dev-vsharp",
+  "license": "SEE LICENSE IN LICENSE",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "onLanguage:vsharp"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "vsharp",
+        "aliases": [
+          "V#",
+          "vsharp"
+        ],
+        "extensions": [
+          ".vs"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "vsharp",
+        "scopeName": "source.vsharp",
+        "path": "./syntaxes/vsharp.tmLanguage.json"
+      }
+    ],
+    "configuration": {
+      "title": "V#",
+      "properties": {
+        "vsharp.server.path": {
+          "type": "string",
+          "default": "",
+          "description": "Absolute path to the vsharp-lsp launcher. When empty the extension uses the copy bundled with it, and falls back to a 'vsharp-lsp' found on PATH."
+        },
+        "vsharp.server.java": {
+          "type": "string",
+          "default": "",
+          "description": "Absolute path to the java executable used to run the bundled server. When empty JAVA_HOME is used, then 'java' from PATH. V# requires Java 25 or later."
+        },
+        "vsharp.trace.server": {
+          "type": "boolean",
+          "default": false,
+          "description": "Log every LSP message to the V# output channel."
+        },
+        "vsharp.allowUnboundedJoins": {
+          "type": "boolean",
+          "default": false,
+          "description": "Match a build that passes --allow-unbounded-joins. Joining a task with Get/Join/GetNow waits outside the 60-second execution limit and is an error by default; enable this only when the build accepts it, so the editor does not report errors a passing build does not."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "vsharp.restartServer",
+        "title": "V#: Restart Language Server"
+      },
+      {
+        "command": "vsharp.showOutput",
+        "title": "V#: Show Language Server Output"
+      },
+      {
+        "command": "vsharp.reportStatus",
+        "title": "V#: Report Status"
+      }
+    ]
+  }
+}

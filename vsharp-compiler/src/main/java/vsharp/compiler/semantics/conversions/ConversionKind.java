@@ -1,0 +1,20 @@
+package vsharp.compiler.semantics.conversions;
+
+public enum ConversionKind {
+    NONE,
+    IDENTITY,
+    IMPLICIT_NUMERIC,
+    IMPLICIT_CONSTANT,
+    IMPLICIT_NULL,
+    IMPLICIT_REFERENCE,
+    IMPLICIT_NULLABLE,
+    IMPLICIT_TUPLE,
+    IMPLICIT_LAMBDA,
+    EXPLICIT_NUMERIC,
+    EXPLICIT_ENUM,
+    EXPLICIT_REFERENCE,
+    EXPLICIT_NULLABLE,
+    EXPLICIT_TUPLE,
+    BOXING,
+    UNBOXING
+}
