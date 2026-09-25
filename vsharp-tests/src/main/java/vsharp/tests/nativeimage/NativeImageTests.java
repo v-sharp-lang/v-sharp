@@ -1,6 +1,5 @@
 package vsharp.tests.nativeimage;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -210,10 +209,6 @@ public final class NativeImageTests implements TestSuite {
                 deleteTree(directory);
             }
         });
-
-        if (File.separatorChar != '/') {
-            return;
-        }
 
         registry.test("an exported GRAAL_HOME runs the launcher with the emitted program", () -> {
             Path directory = temporaryDirectory();
